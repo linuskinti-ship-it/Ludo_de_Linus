@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#302314" />
+    <title>Ludo — La partie</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Accueil Ludo">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>Ludo <span class="brand-note">· classique</span></span>
+        </a>
+        <div class="topbar-actions">
+          <button class="header-button" id="open-rules" type="button">Règles</button>
+          <button class="header-button settings-button" id="open-settings" type="button" aria-label="Paramètres" title="Paramètres">⚙</button>
+        </div>
+      </header>
+
+      <section class="intro">
+        <div class="game-actions">
+          <button class="new-game" id="new-game" type="button"><span aria-hidden="true">↻</span> Nouvelle partie</button>
+        </div>
+      </section>
+
+      <section class="game-layout" aria-label="Partie de Ludo">
+        <div class="board-wrap">
+          <div class="board-frame">
+            <div class="board" id="board" role="group" aria-label="Plateau de Ludo"></div>
+          </div>
+          <div class="board-caption"><span><i class="legend-dot red"></i>Rouge <i class="legend-dot green"></i>Vert <i class="legend-dot yellow"></i>Jaune <i class="legend-dot blue"></i>Bleu</span><span>Un six pour sortir</span></div>
+        </div>
+      </section>
+      <footer>Ludo <span>—</span> partie entre amis</footer>
+    </main>
+
+    <dialog class="game-dialog" id="settings-dialog" aria-labelledby="settings-title">
+      <form method="dialog" class="dialog-close-form">
+        <button class="dialog-close" aria-label="Fermer les paramètres">×</button>
+      </form>
+      <p class="eyebrow">PERSONNALISER LA PARTIE</p>
+      <h2 id="settings-title">Paramètres</h2>
+      <fieldset class="settings-field">
+        <legend>Nombre de joueurs</legend>
+        <div class="count-options" role="group" aria-label="Nombre de joueurs">
+          <button type="button" data-player-count="2" aria-label="2 joueurs" aria-pressed="false">2</button>
+          <button type="button" data-player-count="3" aria-label="3 joueurs" aria-pressed="false">3</button>
+          <button type="button" data-player-count="4" aria-label="4 joueurs" aria-pressed="true">4</button>
+        </div>
+      </fieldset>
+      <fieldset class="settings-field color-field">
+        <legend>Couleurs des joueurs</legend>
+        <div class="color-options" role="group" aria-label="Couleurs des joueurs">
+          <button type="button" class="color-option red" data-player-color="0" aria-pressed="true"><i></i>Rouge</button>
+          <button type="button" class="color-option green" data-player-color="1" aria-pressed="true"><i></i>Vert</button>
+          <button type="button" class="color-option yellow" data-player-color="2" aria-pressed="true"><i></i>Jaune</button>
+          <button type="button" class="color-option blue" data-player-color="3" aria-pressed="true"><i></i>Bleu</button>
+        </div>
+      </fieldset>
+      <p class="dialog-note" id="settings-message" aria-live="polite">La sélection est prête. Vous pouvez modifier les couleurs.</p>
+      <div class="dialog-actions">
+        <form method="dialog"><button class="dialog-cancel">Annuler</button></form>
+        <button class="dialog-done" id="apply-settings" type="button">Démarrer la partie</button>
+      </div>
+    </dialog>
+
+    <dialog class="game-dialog" id="rules-dialog" aria-labelledby="rules-title">
+      <form method="dialog" class="dialog-close-form">
+        <button class="dialog-close" aria-label="Fermer les règles">×</button>
+      </form>
+      <p class="eyebrow">COMMENT JOUER</p>
+      <h2 id="rules-title">Règles du Ludo</h2>
+      <ol class="rules-list">
+        <li>Un <strong>6</strong> fait sortir un pion de sa base.</li>
+        <li>Les pions avancent selon le résultat du dé, case par case.</li>
+        <li>Trois six consécutifs annulent le troisième lancer et font passer le tour.</li>
+        <li>Si plusieurs pions peuvent jouer, choisissez-en un. S'il n'y en a qu'un, il avance automatiquement.</li>
+        <li>Atterrissez sur un adversaire pour le renvoyer à sa base. Les cases étoilées sont protégées.</li>
+        <li>Il faut un résultat exact pour atteindre le centre. Un pion arrivé disparaît du plateau ; le premier à rentrer ses quatre pions gagne.</li>
+      </ol>
+      <form method="dialog"><button class="dialog-done">Compris</button></form>
+    </dialog>
+  </body>
+</html>
